@@ -12,6 +12,7 @@ app.use(express.json());
 
 // Register routes
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/connections', require('./routes/connections'));
 
 // Health check
 app.get('/', (req, res) => {
