@@ -2,11 +2,11 @@ import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const navItems = [
-  { to: '/', label: 'Dashboard', icon: '⬛' },
-  { to: '/connections', label: 'Connections', icon: '🔌' },
-  { to: '/query', label: 'Query Builder', icon: '🗄️' },
-  { to: '/generate', label: 'Route Generator', icon: '⚡' },
-  { to: '/history', label: 'History', icon: '📋' },
+  { to: '/',            label: 'Dashboard',       icon: '⬛' },
+  { to: '/connections', label: 'Connections',      icon: '🔌' },
+  { to: '/query',       label: 'Query Builder',    icon: '🔍' },
+  { to: '/generate',    label: 'Route Generator',  icon: '⚡' },
+  { to: '/history',     label: 'History',          icon: '📋' },
 ];
 
 export default function Layout() {
