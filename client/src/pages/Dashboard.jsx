@@ -2,9 +2,9 @@ import { useAuth } from '../context/AuthContext';
 import { Link } from 'react-router-dom';
 
 const cards = [
-  { to: '/connections', title: 'Connections',     desc: 'Connect your MongoDB or MySQL database', icon: '🔌' },
-  { to: '/query',       title: 'Query Builder',   desc: 'Visually build and run DB queries',       icon: '🗄️'  },
-  { to: '/generate',    title: 'Route Generator', desc: 'Auto-generate Express.js route files',    icon: '⚡' },
+  { to: '/connections', title: 'Connections', desc: 'Connect your MongoDB or MySQL database', icon: '🔌' },
+  { to: '/query', title: 'Query Builder', desc: 'Visually build and run DB queries', icon: '🔍' },
+  { to: '/generate', title: 'Route Generator', desc: 'Auto-generate Express.js route files', icon: '⚡' },
 ];
 
 export default function Dashboard() {

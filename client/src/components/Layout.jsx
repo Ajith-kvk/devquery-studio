@@ -2,10 +2,10 @@ import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const navItems = [
-  { to: '/',            label: 'Dashboard',        icon: '⬛' },
-  { to: '/connections', label: 'Connections',       icon: '🔌' },
-  { to: '/query',       label: 'Query Builder',     icon: '🗄️'  },
-  { to: '/generate',    label: 'Route Generator',   icon: '⚡' },
+  { to: '/', label: 'Dashboard', icon: '⬛' },
+  { to: '/connections', label: 'Connections', icon: '🔌' },
+  { to: '/query', label: 'Query Builder', icon: '🔍' },
+  { to: '/generate', label: 'Route Generator', icon: '⚡' },
 ];
 
 export default function Layout() {
@@ -36,10 +36,9 @@ export default function Layout() {
               to={item.to}
               end={item.to === '/'}
               className={({ isActive }) =>
-                `flex items-center gap-2 px-3 py-2 rounded text-sm transition-colors ${
-                  isActive
-                    ? 'bg-purple-900/40 text-purple-300 border border-purple-800/50'
-                    : 'text-gray-500 hover:text-gray-200 hover:bg-gray-800/50'
+                `flex items-center gap-2 px-3 py-2 rounded text-sm transition-colors ${isActive
+                  ? 'bg-purple-900/40 text-purple-300 border border-purple-800/50'
+                  : 'text-gray-500 hover:text-gray-200 hover:bg-gray-800/50'
                 }`
               }
             >

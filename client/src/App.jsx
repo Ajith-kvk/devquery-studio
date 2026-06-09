@@ -5,6 +5,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Connections from './pages/Connections';
+import QueryBuilder from './pages/QueryBuilder';
+import RouteGenerator from './pages/RouteGenerator';
 
 function PrivateRoute({ children }) {
   const { user } = useAuth();
@@ -28,7 +30,8 @@ export default function App() {
           >
             <Route index element={<Dashboard />} />
             <Route path="connections" element={<Connections />} />
-            {/* Day 4 and 5 routes go here later */}
+            <Route path="query" element={<QueryBuilder />} />
+            <Route path="generate" element={<RouteGenerator />} />
           </Route>
         </Routes>
       </BrowserRouter>
