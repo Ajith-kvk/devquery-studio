@@ -32,8 +32,8 @@ export default function App() {
             <Route index element={<Dashboard />} />
             <Route path="connections" element={<Connections />} />
             <Route path="history" element={<History />} />
-            <Route path="query-builder" element={<QueryBuilder />} />
-            <Route path="route-generator" element={<RouteGenerator />} />
+            <Route path="query" element={<QueryBuilder />} />
+            <Route path="generate" element={<RouteGenerator />} />
           </Route>
         </Routes>
       </BrowserRouter>
