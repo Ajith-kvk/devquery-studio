@@ -10,26 +10,37 @@ const app = express();
 app.use(cors({ origin: process.env.CLIENT_URL }));
 app.use(express.json());
 
-// Register routes
-app.use('/api/auth', require('./routes/auth'));
+// Routes
+app.use('/api/auth',        require('./routes/auth'));
 app.use('/api/connections', require('./routes/connections'));
 app.use('/api/query',       require('./routes/query'));
 app.use('/api/generate',    require('./routes/generate'));
 
-// Health check
+// Health check — Render uses this to confirm the server is alive
 app.get('/', (req, res) => {
-  res.json({ message: '🟢 DevQuery Studio server is running!' });
+  res.json({ message: 'DevQuery Studio API is running' });
 });
 
-// Connect to MongoDB Atlas, then start the server
+// 404 handler — catches requests to unknown routes
+app.use((req, res) => {
+  res.status(404).json({ message: `Route ${req.method} ${req.url} not found` });
+});
+
+// Global error handler — catches any unhandled errors in routes
+app.use((err, req, res, next) => {
+  console.error('Unhandled error:', err.message);
+  res.status(500).json({ message: 'Internal server error' });
+});
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
-    console.log('✅ Connected to MongoDB Atlas');
+    console.log('Connected to MongoDB Atlas');
     app.listen(process.env.PORT || 5000, () => {
-      console.log(`✅ Server running on http://localhost:${process.env.PORT || 5000}`);
+      console.log(`Server running on port ${process.env.PORT || 5000}`);
     });
   })
   .catch((err) => {
-    console.error('❌ MongoDB connection failed:', err.message);
+    console.error('MongoDB connection failed:', err.message);
+    process.exit(1);
   });
