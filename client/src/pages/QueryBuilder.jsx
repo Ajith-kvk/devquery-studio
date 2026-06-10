@@ -293,11 +293,6 @@ export default function QueryBuilder() {
             {running ? 'Running...' : 'Run Query'}
           </button>
           {error && <span className="text-red-400 text-sm">{error}</span>}
-          {!error && (
-            <span className="text-gray-600 text-xs">
-              Backend wiring comes in Day 5
-            </span>
-          )}
         </div>
 
         {/* Result */}
